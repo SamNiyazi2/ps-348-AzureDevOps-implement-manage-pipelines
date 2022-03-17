@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# 03/17/2022 11:38 am - SSN - Testing self-hosted agent pool started 
+# with C:\Sams_P\PS\microsoft-azure-implement-\WorkProject_T1\M04\M05\M05-03.ps1
+# Using run command to trigger it.  Not master.
+
+trigger:
+- main
+
+pool:
+  name: 'ps-348-agentpool-windows-container-20220317'
+steps:
+- task: PowerShell@2
+  displayName: 'Execute inline PowerShell'
+  inputs:
+    targetType: inline
+    script: 'write-host "This job was execute in a container call $ENV:COMPUTERNAME"'
+
+
